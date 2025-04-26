@@ -1,30 +1,29 @@
-import ErrorPage from "./pages/ErrorPage";  // Ensure this path is correct
-import Home from "./pages/Home";
-import Directors from "./pages/Directors";
-import Actors from "./pages/Actors";
-import Movie from "./pages/Movie";
-
-const routes = [
+import { createBrowserRouter } from 'react-router-dom';
+import Home from './pages/Home';
+import Actors from './pages/Actors';
+import Directors from './pages/Directors';
+import Movie from './pages/Movie';
+import ErrorPage from './pages/ErrorPage';
+export const routes = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Home />,
+    errorElement: <ErrorPage />,
   },
   {
-    path: "/directors",
+    path: '/directors',
     element: <Directors />,
+    errorElement: <ErrorPage />,
   },
   {
-    path: "/actors",
+    path: '/actors',
     element: <Actors />,
+    errorElement: <ErrorPage />,
   },
   {
-    path: "/movie/:id",
+    path: '/movie/:id',
     element: <Movie />,
+    errorElement: <ErrorPage />,
   },
-  {
-    path: "*", // wildcard path for errors
-    element: <ErrorPage />,
-  },
-];
-
+]);
 export default routes;
